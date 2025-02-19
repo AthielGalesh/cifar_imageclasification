@@ -155,4 +155,14 @@ if __name__ == "__main__":
 
     cifar_result=cifar_trainer.test(cifar_module,
                        datamodule=cifar_dm)
-    #print(cifar_result)
+
+    #guardo la rn entrenada:----------
+    try:
+        torch.save(cifar_model.state_dict(), "cifar_cnn.pth")
+        print("modelo guardado con exito")
+    except:
+        raise ValueError("Error")
+#-------------------------------------
+#-------------------------------------
+#-------------------------------------
+
