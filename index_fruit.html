@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Can I eat this?</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .upload-box {
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px dashed white;
+            display: inline-block;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        label {
+            background-color: purple;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Can I eat this?</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="upload-box">
+                <label for="file-upload">Upload an image</label>
+                <input id="file-upload" type="file" name="file" accept="image/jpg">
+            </div>
+            <br>
+            <button type="submit">Analyze</button>
+        </form>
+        <p>Upload a fruit, we will tell you if it’s safe to eat or not (and for how long)</p>
+    </div>
+</body>
+</html>
+{% endblock %}
